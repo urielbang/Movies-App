@@ -4,6 +4,7 @@ let result = document.querySelector("#result");
 
 let getMovie = () => {
   let movieName = Number(movieNameRef.value);
+  let arrActors = [];
 
   if (movieName.length <= 0) {
     result.innerHTML = `<h3 class="msg">please enter movie id</h3>`;
@@ -13,7 +14,7 @@ let getMovie = () => {
       headers: {
         accept: "application/json",
         Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNjNjNzViMWI2ZDUwMGNkMjgzZjU0MmU4ZTFlZDJkYSIsInN1YiI6IjVjMDNiNDQwMGUwYTI2NDg2YTA2ZjYwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Pj6auQlw-VfPG6PenA6MbujH_SQk3Xr3LmD6H9WdH04",
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNjdhMzIxYjY1ZjRkN2NlODVkYjQ2YTBkNTA3MmFjNCIsInN1YiI6IjY1MTY4ZDc0YTE5OWE2MDBmZTc1NTJmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7x--3RwamVL3bLm3Laiofc8PnepsjHFDDtCo7So7cAo",
       },
     };
 
@@ -43,17 +44,44 @@ let getMovie = () => {
         </div>
         <div class="genre">
         <div>${response.genres[0].name}</div>
+       
         <div>${response.genres[1].name}</div>
         </div>
         </div>
+       
+       
         <h3>Plot:</h3>
         <p>${response.overview}</p>
+        
+        <h3>actors:</h3>
+        <p id="actorsText"></p>
+        
+        
+        
+      
         `;
       })
       .catch((error) => {
         result.innerHTML = `<h3 class="msg">Error Occured</h3>`;
         console.log(error);
       });
+
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movieName}/credits?language=en-US`,
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        let strResult = "";
+
+        for (let i = 0; i < data.cast.length / 2; i++) {
+          strResult += data.cast[i].name;
+          document.querySelector("#actorsText").innerHTML += data.cast[i].name;
+          document.querySelector("#actorsText").innerHTML += ", ";
+        }
+        console.log(strResult);
+      })
+      .catch((err) => console.error(err));
   }
 };
 

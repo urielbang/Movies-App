@@ -1,7 +1,9 @@
 document.querySelector("#formId").addEventListener("submit", (e) => {
   e.preventDefault();
   let movieNAme = movieInput.value;
-  console.log(movieNAme);
+  movieInput.value = "";
+  document.querySelector("#mainResult").innerHTML = "";
+
   const options = {
     method: "GET",
     headers: {
@@ -12,10 +14,23 @@ document.querySelector("#formId").addEventListener("submit", (e) => {
   };
 
   fetch(
-    ` https://api.themoviedb.org/3/search/movie?query=${"Pirates of the Caribbean"}&include_adult=false&language=en-US&page=1`,
+    ` https://api.themoviedb.org/3/search/movie?query=${movieNAme}&include_adult=false&language=en-US&page=1`,
     options
   )
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((data) => {
+      data.results.forEach((element) => {
+        let date = new Date(element.release_date).getFullYear();
+
+        document.querySelector("#mainResult").innerHTML += `
+            
+            <div style="display: flex;flex-direction: column;" class="card">
+            <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
+            <p> ${element.original_title}</p>
+            <span>${date}</span>
+            </div>
+            `;
+      });
+    })
     .catch((err) => console.error(err));
 });

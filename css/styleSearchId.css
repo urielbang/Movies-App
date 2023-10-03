@@ -189,3 +189,9 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+#actorsDiv {
+  display: flex;
+  background-color: #c84047;
+}
+

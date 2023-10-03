@@ -22,6 +22,7 @@ fetch(
       <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
       <p> ${element.original_title}</p>
       <span>${date}</span>
+      <div>
     
       
       
@@ -31,6 +32,7 @@ fetch(
       <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
       <p> ${element.original_title}</p>
       <span>${date}</span>
+      </div>
       `;
     });
   })
