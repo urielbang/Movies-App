@@ -101,6 +101,15 @@ body {
   border: none;
   cursor: pointer;
 }
+.search-container button:hover {
+  box-shadow: rgba(141, 10, 34, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #c84047 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+.search-container button:active {
+  box-shadow: rgba(141, 10, 34, 0.4) 0 3px 7px inset;
+  transform: translateY(2px);
+}
 #result {
   color: #fff;
 }

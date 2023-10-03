@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+
+  font-family: "Lato", sans-serif;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: linear-gradient(#1c1917 50%, rgb(158, 11, 11) 50%);
+  flex-direction: column;
+}
+#headerBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.listBar {
+  list-style: none;
+  display: flex;
+  width: 50%;
+
+  justify-content: space-between;
+}
+.listBar a {
+  text-decoration: none;
+  color: white;
+  transition: 2s all ease-in-out;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Cinzel", serif;
+}
+.listBar a:hover {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.423);
+}
+
+.tvLogo {
+  color: rgb(222, 9, 54);
+  font-weight: bold;
+  font-size: 40px;
+  text-decoration: none;
+  width: auto;
+  margin-top: 1%;
+  font-family: "Cinzel", serif;
+}
+.login {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+  font-family: "Cinzel", serif;
+  transition: 2s ease-in-out;
+  font-size: 17px;
+  font-weight: bold;
+}
+.login:hover {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.481);
+}
+
+.box {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: center;
+}
+input {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  box-sizing: border-box;
+  transition: 0.5;
+}
+input[type="text"] {
+  background-color: #1e293b;
+  width: 340px;
+  height: 50px;
+  border: none;
+  outline: none;
+
+  padding: 0.25px;
+  border-radius: 25px 0 0 25px;
+}
+
+input[type="text"]:focus {
+  border: solid 1px #fff;
+}
+input[type="submit"] {
+  position: relative;
+  border-radius: 0 25px 25px 0;
+  width: 150px;
+  height: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(158, 11, 11);
+}
+input[type="submit"]:hover {
+  box-shadow: rgba(141, 10, 34, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #c84047 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+input[type="submit"]:active {
+  box-shadow: rgba(141, 10, 34, 0.4) 0 3px 7px inset;
+  transform: translateY(2px);
+}
