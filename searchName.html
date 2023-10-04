@@ -2,27 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@500;700;800&family=Inter:wght@400;700&family=Karla:wght@400;700&family=League+Spartan:wght@700&family=Lexend+Deca&family=Poppins:wght@200;400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styleAbout.css" />
+    <link rel="stylesheet" href="css/serachMovieNAme.css" />
     <link
       rel="shortcut icon"
-      href="/assets/images/icongUriel.png"
+      href="./assets/images/icongUriel.png"
       type="image/x-icon"
     />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uriel.TV</title>
   </head>
   <body>
     <div id="container">
       <div id="headerBar">
-        <a class="tvLogo" href="/index.html">Uriel.TV</a>
+        <a class="tvLogo" href="index.html">Uriel.TV</a>
         <ul class="listBar">
           <!-- סרטים פופווריים -->
-          <li><a href="/index.html">Popular</a></li>
+          <li><a href="index.html">Popular</a></li>
           <!-- חיפוש סרט בודד עם id -->
           <li><a href="searchMovie.html">id Search</a></li>
           <!-- אודות האתר ועללי -->
@@ -34,6 +33,15 @@
         </ul>
         <a class="login" href="#">Login</a>
       </div>
+      <div class="box">
+        <form id="formId">
+          <input placeholder="type name movie..." type="text" id="movieInput" />
+          <input type="submit" value="Search" />
+        </form>
+      </div>
+      <div id="mainResult"></div>
     </div>
+
+    <script src="/javascript/movieNAmeSearch.js"></script>
   </body>
 </html>
