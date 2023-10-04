@@ -75,9 +75,12 @@ let getMovie = () => {
         let strResult = "";
 
         for (let i = 0; i < data.cast.length / 2; i++) {
-          strResult += data.cast[i].name;
-          document.querySelector("#actorsText").innerHTML += data.cast[i].name;
-          document.querySelector("#actorsText").innerHTML += ", ";
+          if (data.cast[i].name !== null) {
+            strResult += data.cast[i].name;
+            document.querySelector("#actorsText").innerHTML +=
+              data.cast[i].name;
+            document.querySelector("#actorsText").innerHTML += ", ";
+          }
         }
         console.log(strResult);
       })

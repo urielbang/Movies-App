@@ -1,6 +1,7 @@
-let counter = 0;
+let counter = -140;
 let idRightinterval;
 let idLeftInteval;
+document.querySelector("#slider").style = `translate: -140px;`;
 
 document.querySelector("#rightArrow").addEventListener("click", () => {
   clearInterval(idLeftInteval);
