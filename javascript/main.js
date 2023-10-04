@@ -138,3 +138,6 @@ document.querySelector("#format").addEventListener("change", () => {
       .catch((err) => console.error(err));
   }
 });
+
+let hearts = document.querySelectorAll(".fa-heart");
+console.log(hearts);
