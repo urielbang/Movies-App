@@ -6,16 +6,17 @@ const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNjNjNzViMWI2ZDUwMGNkMjgzZjU0MmU4ZTFlZDJkYSIsInN1YiI6IjVjMDNiNDQwMGUwYTI2NDg2YTA2ZjYwNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Pj6auQlw-VfPG6PenA6MbujH_SQk3Xr3LmD6H9WdH04",
   },
 };
-
+//!default page
 fetch(
-  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=9",
+  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=5",
   options
 )
   .then((response) => response.json())
   .then((response) => {
-    response.results.forEach((element) => {
+    response.results.forEach((element, index) => {
       let date = new Date(element.release_date).getFullYear();
 
+      //!slider
       document.querySelector("#slider").innerHTML += `
       
       <div style="display: flex;flex-direction: column;" class="cardSlider">
@@ -27,10 +28,14 @@ fetch(
       
       
       `;
+      //!the all page!
       document.querySelector("#mainPopular").innerHTML += `
-      <div style="display: flex;flex-direction: column;" class="card">
+      <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
       <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
+      <div style="display: flex;flex-direction: row;" class="divHeart"> 
       <p> ${element.original_title}</p>
+      <i class="fa fa-heart" style="font-size: 20px"></i>
+       </div>
       <span>${date}</span>
       </div>
       `;
@@ -38,12 +43,12 @@ fetch(
   })
   .catch((err) => console.error(err));
 
-//! popular of day
 document.querySelector("#format").addEventListener("change", () => {
   document.querySelector("#slider").innerHTML = "";
   document.querySelector("#mainPopular").innerHTML = "";
 
   let valueChoose = document.querySelector("select").value;
+  //!popular of week
   if (valueChoose == "weekPopular") {
     const options = {
       method: "GET",
@@ -63,6 +68,7 @@ document.querySelector("#format").addEventListener("change", () => {
         response.results.forEach((element) => {
           let date = new Date(element.release_date).getFullYear();
 
+          //!change the alider to popular of week
           document.querySelector("#slider").innerHTML += `
           
           <div style="display: flex;flex-direction: column;" class="cardSlider">
@@ -73,16 +79,21 @@ document.querySelector("#format").addEventListener("change", () => {
           
           
           `;
+          //!change the main popular of week
           document.querySelector("#mainPopular").innerHTML += `
           <div style="display: flex;flex-direction: column;" class="card">
           <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
+          <div style="display: flex;flex-direction: row;" class="divHeart"> 
           <p> ${element.original_title}</p>
+          <i class="fa fa-heart" style="font-size: 20px"></i>
+           </div>
           <span>${date}</span>
           `;
         });
       })
       .catch((err) => console.error(err));
   } else {
+    //!if daiy !
     const options = {
       method: "GET",
       headers: {
@@ -98,9 +109,10 @@ document.querySelector("#format").addEventListener("change", () => {
     )
       .then((response) => response.json())
       .then((response) => {
-        response.results.forEach((element) => {
+        response.results.forEach((element, index) => {
           let date = new Date(element.release_date).getFullYear();
 
+          //! change slider popular day
           document.querySelector("#slider").innerHTML += `
           
           <div style="display: flex;flex-direction: column;" class="cardSlider">
@@ -111,10 +123,14 @@ document.querySelector("#format").addEventListener("change", () => {
           
           
           `;
+          //!change the main popular day
           document.querySelector("#mainPopular").innerHTML += `
-          <div style="display: flex;flex-direction: column;" class="card">
+          <div  style="display: flex;flex-direction: column;" class="card">
           <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
+          <div style="display: flex;flex-direction: row;" class="divHeart"> 
           <p> ${element.original_title}</p>
+          <i class="fa fa-heart" style="font-size: 20px"></i>
+           </div>
           <span>${date}</span>
           `;
         });
