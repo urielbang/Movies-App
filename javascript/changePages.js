@@ -7,7 +7,7 @@ document.querySelector("#btn1").addEventListener("click", () => {
   )
     .then((response) => response.json())
     .then((response) => {
-      response.results.forEach((element) => {
+      response.results.forEach((element, index) => {
         let date = new Date(element.release_date).getFullYear();
 
         document.querySelector("#slider").innerHTML += `
@@ -23,7 +23,7 @@ document.querySelector("#btn1").addEventListener("click", () => {
           
           `;
         document.querySelector("#mainPopular").innerHTML += `
-          <div style="display: flex;flex-direction: column;" class="card">
+          <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
           <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
           <div style="display: flex;flex-direction: row;" class="divHeart"> 
           <p> ${element.original_title}</p>
@@ -32,6 +32,17 @@ document.querySelector("#btn1").addEventListener("click", () => {
           <span>${date}</span>
           `;
       });
+      hearts = document.getElementsByClassName("fa-heart");
+      for (let i = 0; i < hearts.length; i++) {
+        hearts[i].addEventListener("click", () => {
+          hearts[i].style.color = "red";
+          let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+          favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+      }
     })
     .catch((err) => console.error(err));
 });
@@ -45,7 +56,7 @@ document.querySelector("#btn2").addEventListener("click", () => {
   )
     .then((response) => response.json())
     .then((response) => {
-      response.results.forEach((element) => {
+      response.results.forEach((element, index) => {
         let date = new Date(element.release_date).getFullYear();
 
         document.querySelector("#slider").innerHTML += `
@@ -61,7 +72,7 @@ document.querySelector("#btn2").addEventListener("click", () => {
             
             `;
         document.querySelector("#mainPopular").innerHTML += `
-            <div style="display: flex;flex-direction: column;" class="card">
+            <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
             <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
             <div style="display: flex;flex-direction: row;" class="divHeart"> 
             <p> ${element.original_title}</p>
@@ -70,6 +81,17 @@ document.querySelector("#btn2").addEventListener("click", () => {
             <span>${date}</span>
             `;
       });
+      hearts = document.getElementsByClassName("fa-heart");
+      for (let i = 0; i < hearts.length; i++) {
+        hearts[i].addEventListener("click", () => {
+          hearts[i].style.color = "red";
+          let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+          favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+      }
     })
     .catch((err) => console.error(err));
 });
@@ -83,7 +105,7 @@ document.querySelector("#btn3").addEventListener("click", () => {
   )
     .then((response) => response.json())
     .then((response) => {
-      response.results.forEach((element) => {
+      response.results.forEach((element, index) => {
         let date = new Date(element.release_date).getFullYear();
 
         document.querySelector("#slider").innerHTML += `
@@ -97,7 +119,7 @@ document.querySelector("#btn3").addEventListener("click", () => {
             
             `;
         document.querySelector("#mainPopular").innerHTML += `
-            <div style="display: flex;flex-direction: column;" class="card">
+            <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
             <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
             <div style="display: flex;flex-direction: row;" class="divHeart"> 
             <p> ${element.original_title}</p>
@@ -106,6 +128,17 @@ document.querySelector("#btn3").addEventListener("click", () => {
             <span>${date}</span>
             `;
       });
+      hearts = document.getElementsByClassName("fa-heart");
+      for (let i = 0; i < hearts.length; i++) {
+        hearts[i].addEventListener("click", () => {
+          hearts[i].style.color = "red";
+          let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+          favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+      }
     })
     .catch((err) => console.error(err));
 });
@@ -119,7 +152,7 @@ document.querySelector("#btn4").addEventListener("click", () => {
   )
     .then((response) => response.json())
     .then((response) => {
-      response.results.forEach((element) => {
+      response.results.forEach((element, index) => {
         let date = new Date(element.release_date).getFullYear();
 
         document.querySelector("#slider").innerHTML += `
@@ -133,7 +166,7 @@ document.querySelector("#btn4").addEventListener("click", () => {
             
             `;
         document.querySelector("#mainPopular").innerHTML += `
-            <div style="display: flex;flex-direction: column;" class="card">
+            <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
             <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
             <div style="display: flex;flex-direction: row;" class="divHeart"> 
             <p> ${element.original_title}</p>
@@ -142,6 +175,17 @@ document.querySelector("#btn4").addEventListener("click", () => {
             <span>${date}</span>
             `;
       });
+      hearts = document.getElementsByClassName("fa-heart");
+      for (let i = 0; i < hearts.length; i++) {
+        hearts[i].addEventListener("click", () => {
+          hearts[i].style.color = "red";
+          let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+          favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+      }
     })
     .catch((err) => console.error(err));
 });
@@ -155,7 +199,7 @@ document.querySelector("#btn5").addEventListener("click", () => {
   )
     .then((response) => response.json())
     .then((response) => {
-      response.results.forEach((element) => {
+      response.results.forEach((element, index) => {
         let date = new Date(element.release_date).getFullYear();
 
         document.querySelector("#slider").innerHTML += `
@@ -169,7 +213,7 @@ document.querySelector("#btn5").addEventListener("click", () => {
             
             `;
         document.querySelector("#mainPopular").innerHTML += `
-            <div style="display: flex;flex-direction: column;" class="card">
+            <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
             <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
             <div style="display: flex;flex-direction: row;" class="divHeart"> 
             <p> ${element.original_title}</p>
@@ -178,6 +222,17 @@ document.querySelector("#btn5").addEventListener("click", () => {
             <span>${date}</span>
             `;
       });
+      hearts = document.getElementsByClassName("fa-heart");
+      for (let i = 0; i < hearts.length; i++) {
+        hearts[i].addEventListener("click", () => {
+          hearts[i].style.color = "red";
+          let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+          favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+
+          localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+      }
     })
     .catch((err) => console.error(err));
 });

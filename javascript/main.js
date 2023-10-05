@@ -54,14 +54,8 @@ fetch(
         let strTmp = document.getElementById(`card${i}`).innerHTML;
 
         favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
-        // let getFavorites = localStorage.getItem("favorites");
 
         localStorage.setItem("favorites", JSON.stringify(favorites));
-        // if (getFavorites !== null) {
-        //   localStorage.setItem("favorites", [...getFavorites, favorites]);
-        // } else {
-        //   localStorage.setItem("favorites", [favorites]);
-        // }
       });
     }
   })
@@ -89,7 +83,7 @@ document.querySelector("#format").addEventListener("change", () => {
     )
       .then((response) => response.json())
       .then((response) => {
-        response.results.forEach((element) => {
+        response.results.forEach((element, index) => {
           let date = new Date(element.release_date).getFullYear();
 
           //!change the alider to popular of week
@@ -105,7 +99,7 @@ document.querySelector("#format").addEventListener("change", () => {
           `;
           //!change the main popular of week
           document.querySelector("#mainPopular").innerHTML += `
-          <div style="display: flex;flex-direction: column;" class="card">
+          <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
           <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
           <div style="display: flex;flex-direction: row;" class="divHeart"> 
           <p> ${element.original_title}</p>
@@ -114,6 +108,17 @@ document.querySelector("#format").addEventListener("change", () => {
           <span>${date}</span>
           `;
         });
+        hearts = document.getElementsByClassName("fa-heart");
+        for (let i = 0; i < hearts.length; i++) {
+          hearts[i].addEventListener("click", () => {
+            hearts[i].style.color = "red";
+            let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+            favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+          });
+        }
       })
       .catch((err) => console.error(err));
   } else {
@@ -149,7 +154,7 @@ document.querySelector("#format").addEventListener("change", () => {
           `;
           //!change the main popular day
           document.querySelector("#mainPopular").innerHTML += `
-          <div  style="display: flex;flex-direction: column;" class="card">
+          <div  style="display: flex;flex-direction: column;" class="card" id="card${index}">
           <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
           <div style="display: flex;flex-direction: row;" class="divHeart"> 
           <p> ${element.original_title}</p>
@@ -158,6 +163,17 @@ document.querySelector("#format").addEventListener("change", () => {
           <span>${date}</span>
           `;
         });
+        hearts = document.getElementsByClassName("fa-heart");
+        for (let i = 0; i < hearts.length; i++) {
+          hearts[i].addEventListener("click", () => {
+            hearts[i].style.color = "red";
+            let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+            favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+          });
+        }
       })
       .catch((err) => console.error(err));
   }
