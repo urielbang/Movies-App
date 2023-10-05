@@ -1,3 +1,10 @@
+let hearts;
+let favorites = [];
+let storageValue = JSON.parse(localStorage.getItem("favorites"));
+
+if (storageValue !== null) {
+  favorites.push(storageValue);
+}
 const options = {
   method: "GET",
   headers: {
@@ -40,6 +47,23 @@ fetch(
       </div>
       `;
     });
+    hearts = document.getElementsByClassName("fa-heart");
+    for (let i = 0; i < hearts.length; i++) {
+      hearts[i].addEventListener("click", () => {
+        hearts[i].style.color = "red";
+        let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+        favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+        // let getFavorites = localStorage.getItem("favorites");
+
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        // if (getFavorites !== null) {
+        //   localStorage.setItem("favorites", [...getFavorites, favorites]);
+        // } else {
+        //   localStorage.setItem("favorites", [favorites]);
+        // }
+      });
+    }
   })
   .catch((err) => console.error(err));
 
@@ -139,5 +163,4 @@ document.querySelector("#format").addEventListener("change", () => {
   }
 });
 
-let hearts = document.querySelectorAll(".fa-heart");
-console.log(hearts);
+console.log(favorites);
