@@ -18,24 +18,72 @@ body {
   justify-content: space-around;
   align-items: center;
 }
-.listBar {
-  list-style: none;
+nav {
   display: flex;
-  width: 50%;
-
-  justify-content: space-between;
-}
-.listBar a {
-  text-decoration: none;
-  color: white;
-  transition: 2s all ease-in-out;
+  justify-content: space-around;
+  align-items: center;
   font-weight: bold;
   font-size: 20px;
-  font-family: "Cinzel", serif;
 }
-.listBar a:hover {
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 7vw;
+}
+
+.nav-links li {
+  padding: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Cinzel", serif;
+  transition: 2s all ease-in-out;
+}
+.nav-links a:hover {
   font-size: 15px;
   color: rgba(255, 255, 255, 0.423);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #e0d5d581;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
 
 .tvLogo {
