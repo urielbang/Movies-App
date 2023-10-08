@@ -1,6 +1,12 @@
 let movieNameRef = document.querySelector("#movie-name");
 let searchBtn = document.querySelector("#search-btn");
 let result = document.querySelector("#result");
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
 
 let getMovie = () => {
   let movieName = Number(movieNameRef.value);
@@ -89,10 +95,3 @@ let getMovie = () => {
 };
 
 document.querySelector("#serach-btn").addEventListener("click", getMovie);
-
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-});

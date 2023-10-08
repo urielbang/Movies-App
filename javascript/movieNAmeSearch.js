@@ -1,3 +1,10 @@
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
 document.querySelector("#formId").addEventListener("submit", (e) => {
   e.preventDefault();
   let movieNAme = movieInput.value;
@@ -33,11 +40,4 @@ document.querySelector("#formId").addEventListener("submit", (e) => {
       });
     })
     .catch((err) => console.error(err));
-});
-
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
 });

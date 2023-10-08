@@ -1,5 +1,6 @@
 let hearts;
 let favorites = [];
+let cardClass;
 let storageValue = JSON.parse(localStorage.getItem("favorites"));
 
 if (storageValue !== null) {
@@ -20,6 +21,7 @@ fetch(
 )
   .then((response) => response.json())
   .then((response) => {
+    console.log(response);
     response.results.forEach((element, index) => {
       let date = new Date(element.release_date).getFullYear();
 
@@ -56,6 +58,15 @@ fetch(
         favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
 
         localStorage.setItem("favorites", JSON.stringify(favorites));
+      });
+    }
+    cardClass = document.getElementsByClassName("card");
+    for (let i = 0; i < cardClass.length; i++) {
+      cardClass[i].addEventListener("click", () => {
+        document.querySelector(
+          ".imgAlic"
+        ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+        `;
       });
     }
   })
