@@ -114,7 +114,7 @@ nav {
   display: flex;
   position: absolute;
   justify-content: center;
-  gap: 5%;
+  gap: 2%;
   align-items: center;
   z-index: -5;
   width: 100%;
@@ -125,22 +125,20 @@ nav {
 }
 .imgAlic p {
   text-align: justify;
-  
+
+  margin-right: 3vw;
 }
 .cardOnDisplay {
   display: flex;
   flex-direction: column;
-
+  margin-left: 5%;
   color: white;
-
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .cardOnDisplay .fa-heart {
   display: none;
 }
 .cardOnDisplay img {
-  width: 100%;
+  width: 20vw;
   height: 40vh;
 }
 #showingImgOfMovie {
