@@ -43,6 +43,17 @@ document.querySelector("#btn1").addEventListener("click", () => {
           localStorage.setItem("favorites", JSON.stringify(favorites));
         });
       }
+      cardClass = document.getElementsByClassName("card");
+      for (let i = 0; i < cardClass.length; i++) {
+        cardClass[i].addEventListener("click", () => {
+          document.querySelector(
+            ".imgAlic"
+          ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+          <p>${response.results[i].overview}</p>
+          
+          `;
+        });
+      }
     })
     .catch((err) => console.error(err));
 });
@@ -92,6 +103,17 @@ document.querySelector("#btn2").addEventListener("click", () => {
           localStorage.setItem("favorites", JSON.stringify(favorites));
         });
       }
+      cardClass = document.getElementsByClassName("card");
+      for (let i = 0; i < cardClass.length; i++) {
+        cardClass[i].addEventListener("click", () => {
+          document.querySelector(
+            ".imgAlic"
+          ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+          <p>${response.results[i].overview}</p>
+          
+          `;
+        });
+      }
     })
     .catch((err) => console.error(err));
 });
@@ -137,6 +159,17 @@ document.querySelector("#btn3").addEventListener("click", () => {
           favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
 
           localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+      }
+      cardClass = document.getElementsByClassName("card");
+      for (let i = 0; i < cardClass.length; i++) {
+        cardClass[i].addEventListener("click", () => {
+          document.querySelector(
+            ".imgAlic"
+          ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+          <p>${response.results[i].overview}</p>
+          
+          `;
         });
       }
     })
@@ -186,6 +219,17 @@ document.querySelector("#btn4").addEventListener("click", () => {
           localStorage.setItem("favorites", JSON.stringify(favorites));
         });
       }
+      cardClass = document.getElementsByClassName("card");
+      for (let i = 0; i < cardClass.length; i++) {
+        cardClass[i].addEventListener("click", () => {
+          document.querySelector(
+            ".imgAlic"
+          ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+          <p>${response.results[i].overview}</p>
+          
+          `;
+        });
+      }
     })
     .catch((err) => console.error(err));
 });
@@ -231,6 +275,17 @@ document.querySelector("#btn5").addEventListener("click", () => {
           favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
 
           localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+      }
+      cardClass = document.getElementsByClassName("card");
+      for (let i = 0; i < cardClass.length; i++) {
+        cardClass[i].addEventListener("click", () => {
+          document.querySelector(
+            ".imgAlic"
+          ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+          <p>${response.results[i].overview}</p>
+          
+          `;
         });
       }
     })

@@ -1,4 +1,5 @@
 const favoritesLS = JSON.parse(localStorage.getItem("favorites"));
+
 let tmpCard = [];
 tmpCard.push(JSON.parse(localStorage.getItem("favorites")));
 console.log(tmpCard);
@@ -8,6 +9,7 @@ tmpCard.forEach((elemet) => {
     document.getElementById("mainFavo").innerHTML += elemet;
   }
 });
+
 //!navBar
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");

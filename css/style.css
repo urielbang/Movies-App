@@ -126,6 +126,7 @@ nav {
 .imgAlic p {
   text-align: justify;
 
+  font-weight: bold;
   margin-right: 3vw;
 }
 .cardOnDisplay {
@@ -138,8 +139,8 @@ nav {
   display: none;
 }
 .cardOnDisplay img {
-  width: 20vw;
-  height: 40vh;
+  width: 13vw;
+  height: 35vh;
 }
 #showingImgOfMovie {
   display: flex;
