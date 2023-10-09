@@ -66,6 +66,8 @@ fetch(
         document.querySelector(
           ".imgAlic"
         ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+        <p>${response.results[i].overview}</p>
+        
         `;
       });
     }
