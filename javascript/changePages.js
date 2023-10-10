@@ -33,7 +33,7 @@ document.querySelector("#btn1").addEventListener("click", () => {
           `;
       });
       hearts = document.getElementsByClassName("fa-heart");
-      for (let i = 0; i < hearts.length; i++) {
+      for (let i = 0; i < hearts.length + 1; i++) {
         hearts[i].addEventListener("click", () => {
           hearts[i].style.color = "red";
           let strTmp = document.getElementById(`card${i}`).innerHTML;
@@ -93,7 +93,7 @@ document.querySelector("#btn2").addEventListener("click", () => {
             `;
       });
       hearts = document.getElementsByClassName("fa-heart");
-      for (let i = 0; i < hearts.length; i++) {
+      for (let i = 0; i < hearts.length + 1; i++) {
         hearts[i].addEventListener("click", () => {
           hearts[i].style.color = "red";
           let strTmp = document.getElementById(`card${i}`).innerHTML;
@@ -151,7 +151,7 @@ document.querySelector("#btn3").addEventListener("click", () => {
             `;
       });
       hearts = document.getElementsByClassName("fa-heart");
-      for (let i = 0; i < hearts.length; i++) {
+      for (let i = 0; i < hearts.length + 1; i++) {
         hearts[i].addEventListener("click", () => {
           hearts[i].style.color = "red";
           let strTmp = document.getElementById(`card${i}`).innerHTML;
@@ -209,7 +209,7 @@ document.querySelector("#btn4").addEventListener("click", () => {
             `;
       });
       hearts = document.getElementsByClassName("fa-heart");
-      for (let i = 0; i < hearts.length; i++) {
+      for (let i = 0; i < hearts.length + 1; i++) {
         hearts[i].addEventListener("click", () => {
           hearts[i].style.color = "red";
           let strTmp = document.getElementById(`card${i}`).innerHTML;
@@ -267,7 +267,7 @@ document.querySelector("#btn5").addEventListener("click", () => {
             `;
       });
       hearts = document.getElementsByClassName("fa-heart");
-      for (let i = 0; i < hearts.length; i++) {
+      for (let i = 0; i < hearts.length + 1; i++) {
         hearts[i].addEventListener("click", () => {
           hearts[i].style.color = "red";
           let strTmp = document.getElementById(`card${i}`).innerHTML;
