@@ -89,6 +89,10 @@ nav {
   .hamburger {
     display: flex;
   }
+
+  .mainPopular .card {
+    width: 30vw;
+  }
 }
 
 .tvLogo {

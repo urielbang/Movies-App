@@ -88,6 +88,9 @@ nav {
   .hamburger {
     display: flex;
   }
+  #formId .nameInput {
+    width: 50%;
+  }
 }
 
 .tvLogo {
