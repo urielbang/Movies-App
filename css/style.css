@@ -58,6 +58,10 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
+  #footer .btnPages {
+    width: 5vw;
+    height: 4vh;
+  }
   .nav-links {
     display: none;
     flex-direction: column;

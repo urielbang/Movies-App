@@ -63,7 +63,7 @@ fetch(
         `;
       });
     }
-    for (let i = 0; i < hearts.length + 1; i++) {
+    for (let i = 0; i < hearts.length; i++) {
       hearts[i].addEventListener("click", () => {
         hearts[i].style.color = "red";
         let strTmp = document.getElementById(`card${i}`).innerHTML;
@@ -124,7 +124,20 @@ document.querySelector("#format").addEventListener("change", () => {
           `;
         });
         hearts = document.getElementsByClassName("fa-heart");
-        for (let i = 0; i < hearts.length + 1; i++) {
+        cardClass = document.getElementsByClassName("card");
+        for (let i = 0; i < cardClass.length; i++) {
+          cardClass[i].addEventListener("click", () => {
+            console.log("click");
+            document.querySelector(
+              ".imgAlic"
+            ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+            <p>${response.results[i].overview}</p>
+            
+            `;
+          });
+        }
+
+        for (let i = 0; i < hearts.length; i++) {
           hearts[i].addEventListener("click", () => {
             hearts[i].style.color = "red";
             let strTmp = document.getElementById(`card${i}`).innerHTML;
@@ -132,17 +145,6 @@ document.querySelector("#format").addEventListener("change", () => {
             favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
 
             localStorage.setItem("favorites", JSON.stringify(favorites));
-          });
-        }
-        cardClass = document.getElementsByClassName("card");
-        for (let i = 0; i < cardClass.length; i++) {
-          cardClass[i].addEventListener("click", () => {
-            document.querySelector(
-              ".imgAlic"
-            ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
-            <p>${response.results[i].overview}</p>
-            
-            `;
           });
         }
       })
@@ -189,6 +191,18 @@ document.querySelector("#format").addEventListener("change", () => {
           <span>${date}</span>
           `;
         });
+        cardClass = document.getElementsByClassName("card");
+        for (let i = 0; i < cardClass.length; i++) {
+          cardClass[i].addEventListener("click", () => {
+            console.log("click");
+            document.querySelector(
+              ".imgAlic"
+            ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+            <p>${response.results[i].overview}</p>
+            
+            `;
+          });
+        }
         hearts = document.getElementsByClassName("fa-heart");
         for (let i = 0; i < hearts.length + 1; i++) {
           hearts[i].addEventListener("click", () => {
@@ -198,17 +212,6 @@ document.querySelector("#format").addEventListener("change", () => {
             favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
 
             localStorage.setItem("favorites", JSON.stringify(favorites));
-          });
-        }
-        cardClass = document.getElementsByClassName("card");
-        for (let i = 0; i < cardClass.length; i++) {
-          cardClass[i].addEventListener("click", () => {
-            document.querySelector(
-              ".imgAlic"
-            ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
-            <p>${response.results[i].overview}</p>
-            
-            `;
           });
         }
       })
