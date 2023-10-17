@@ -85,6 +85,9 @@ nav {
   .hamburger {
     display: flex;
   }
+  #mainFavo .cardFavorites {
+    width: 25vw;
+  }
 }
 
 .tvLogo {
