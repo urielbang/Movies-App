@@ -91,6 +91,9 @@ nav {
   #formId .nameInput {
     width: 50%;
   }
+  #mainResult .card {
+    width: 30vw;
+  }
 }
 
 .tvLogo {
