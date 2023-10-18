@@ -89,7 +89,7 @@ nav {
   #container .containSearch {
     margin-top: 8vh;
     width: 600vw;
-    height: 100vh;
+    max-height: 100vh;
   }
 }
 
