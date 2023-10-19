@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="shortcut icon"
-      href="/assets/images/icongUriel.png"
+      href="assets/images/icongUriel.png"
       type="image/x-icon"
     />
     <link
@@ -23,11 +23,118 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@500;700;800&family=Inter:wght@400;700&family=Karla:wght@400;700&family=League+Spartan:wght@700&family=Lexend+Deca&family=Poppins:wght@200;400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/login.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uriel.TV</title>
   </head>
   <body>
     <div id="container">
+      <section class="user hidden">
+        <div class="user_options-container">
+          <div class="user_options-text">
+            <div class="user_options-unregistered">
+              <h2 class="user_unregistered-title">Don't have an account?</h2>
+              <p class="user_unregistered-text">
+                Banjo tote bag bicycle rights, High Life sartorial cray craft
+                beer whatever street art fap.
+              </p>
+              <button class="user_unregistered-signup" id="signup-button">
+                Sign up
+              </button>
+            </div>
+
+            <div class="user_options-registered">
+              <h2 class="user_registered-title">Have an account?</h2>
+              <p class="user_registered-text">
+                Banjo tote bag bicycle rights, High Life sartorial cray craft
+                beer whatever street art fap.
+              </p>
+              <button class="user_registered-login" id="login-button">
+                Login
+              </button>
+            </div>
+          </div>
+
+          <div class="user_options-forms" id="user_options-forms">
+            <div class="user_forms-login">
+              <span class="exitBtn">x</span>
+              <h2 class="forms_title">Login</h2>
+
+              <form class="forms_form">
+                <fieldset class="forms_fieldset">
+                  <div class="forms_field">
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      class="forms_field-input"
+                      required
+                      autofocus
+                    />
+                  </div>
+                  <div class="forms_field">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      class="forms_field-input"
+                      required
+                    />
+                  </div>
+                </fieldset>
+                <div class="forms_buttons">
+                  <button type="button" class="forms_buttons-forgot">
+                    Forgot password?
+                  </button>
+                  <input
+                    type="submit"
+                    value="Log In"
+                    class="forms_buttons-action"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="user_forms-signup">
+              <h2 class="forms_title">Sign Up</h2>
+              <span class="exitBtn">x</span>
+              <form class="forms_form">
+                <fieldset class="forms_fieldset">
+                  <div class="forms_field">
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      class="forms_field-input"
+                      required
+                    />
+                  </div>
+                  <div class="forms_field">
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      class="forms_field-input"
+                      required
+                    />
+                  </div>
+                  <div class="forms_field">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      class="forms_field-input"
+                      required
+                    />
+                  </div>
+                </fieldset>
+                <div class="forms_buttons">
+                  <input
+                    type="submit"
+                    value="Sign up"
+                    class="forms_buttons-action"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- my code -->
       <div id="imgAlice" class="imgAlic"></div>
 
       <nav>
@@ -83,5 +190,6 @@
     <script src="javascript/main.js"></script>
     <script src="javascript/changePages.js"></script>
     <script src="javascript/sliderHomePage.js"></script>
+    <script src="javascript/login.js"></script>
   </body>
 </html>
