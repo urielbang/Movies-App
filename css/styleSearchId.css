@@ -28,6 +28,7 @@ nav {
 }
 .nav * {
   box-sizing: border-box;
+
   transition: all 0.35s ease;
 }
 .nav-links {
@@ -48,6 +49,7 @@ nav {
   color: white;
   position: relative;
   text-decoration: none;
+  font-family: "Cinzel", serif;
   font-size: 20px;
 }
 .nav-links a::before,
