@@ -1,7 +1,7 @@
 .hamburger {
   padding: 15px;
   cursor: pointer;
-  display: inline-block;
+  display: none;
   overflow: hidden;
   background-color: transparent;
 }
@@ -109,4 +109,9 @@
 }
 .hamburger__hidden::after {
   top: 13px;
+}
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
 }

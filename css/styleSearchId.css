@@ -22,12 +22,21 @@ nav {
   align-items: center;
   font-weight: bold;
   font-size: 20px;
+  font-family: "Cinzel", serif;
+  box-sizing: border-box;
+  transition: all 0.35s ease;
 }
-
+.nav * {
+  box-sizing: border-box;
+  transition: all 0.35s ease;
+}
 .nav-links {
   list-style: none;
   display: flex;
   gap: 7vw;
+  list-style: outside none none;
+  margin: 0.5em 1em;
+  padding: 0;
 }
 
 .nav-links li {
@@ -35,14 +44,48 @@ nav {
 }
 
 .nav-links a {
-  color: #fff;
+  padding: 0.5em 0.8em;
+  color: white;
+  position: relative;
   text-decoration: none;
-  font-family: "Cinzel", serif;
-  transition: 2s all ease-in-out;
+  font-size: 20px;
 }
+.nav-links a::before,
+.nav-links a::after {
+  content: "";
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+.nav-links a::before {
+  content: "";
+  right: 0;
+  top: 0;
+  border-top: 3px solid rgb(158, 11, 11);
+  border-right: 3px solid rgb(158, 11, 11);
+  transform: translate(-100%, 50%);
+}
+
+.nav-links a:after {
+  content: "";
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid rgb(158, 11, 11);
+  border-left: 3px solid rgb(158, 11, 11);
+  transform: translate(100%, -50%);
+}
+
+.nav-links a:hover:before,
+.nav-links a:hover:after {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
 .nav-links a:hover {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.423);
+  color: rgb(222, 9, 54);
 }
 
 .hamburger {
