@@ -10,7 +10,6 @@ hamburger.addEventListener("click", () => {
 
 let getMovie = () => {
   let movieName = Number(movieNameRef.value);
-  let arrActors = [];
 
   if (movieName.length <= 0) {
     result.innerHTML = `<h3 class="msg">please enter movie id</h3>`;
@@ -40,7 +39,7 @@ let getMovie = () => {
         <div>
         <h2>${response.title}<h2>
         <div class="rating">
-        <img src="/assets/images/star-icon.svg.png" >
+        <img src="assets/images/star-icon.svg.png">
         <h4>${response.vote_count}</h4>
         </div>
         <div class="details">
