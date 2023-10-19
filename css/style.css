@@ -58,6 +58,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
+  /* not my code */
   #footer .btnPages {
     width: 5vw;
     height: 4vh;

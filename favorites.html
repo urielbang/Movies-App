@@ -13,6 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@500;700;800&family=Inter:wght@400;700&family=Karla:wght@400;700&family=League+Spartan:wght@700&family=Lexend+Deca&family=Poppins:wght@200;400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/hamburger.css" />
     <link rel="stylesheet" href="css/login.css" />
     <title>Uriel.TV</title>
   </head>
@@ -23,7 +24,7 @@
           <div class="user_options-text">
             <div class="user_options-unregistered">
               <h2 class="user_unregistered-title">Don't have an account?</h2>
-            
+
               <button class="user_unregistered-signup" id="signup-button">
                 Sign up
               </button>
@@ -31,7 +32,7 @@
 
             <div class="user_options-registered">
               <h2 class="user_registered-title">Have an account?</h2>
-           
+
               <button class="user_registered-login" id="login-button">
                 Login
               </button>
@@ -128,9 +129,10 @@
         </ul>
         <a class="login" href="#">Login</a>
         <div class="hamburger">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+          <div class="hamburger__container">
+            <div class="hamburger__inner"></div>
+            <div class="hamburger__hidden"></div>
+          </div>
         </div>
       </nav>
       <div id="mainFavo"></div>
