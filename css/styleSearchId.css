@@ -86,11 +86,9 @@ nav {
   .hamburger {
     display: flex;
   }
-  #container .containSearch {
-    margin-top: 8vh;
-    width: 600vw;
-    max-height: 100vh;
-  }
+  /* #container .containSearch {
+
+  } */
 }
 
 .tvLogo {
