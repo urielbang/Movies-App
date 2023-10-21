@@ -16,7 +16,7 @@ const options = {
 };
 //!default page
 fetch(
-  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=5",
+  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
   options
 )
   .then((response) => response.json())
@@ -56,7 +56,7 @@ fetch(
       cardClass[i].addEventListener("click", () => {
         console.log("click");
         document.querySelector(
-          ".imgAlic"
+          "#movieClickDisplay"
         ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
         <p>${response.results[i].overview}</p>
         

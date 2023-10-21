@@ -25,6 +25,7 @@ nav {
   font-family: "Cinzel", serif;
   box-sizing: border-box;
   transition: all 0.35s ease;
+  z-index: 8;
 }
 .nav * {
   box-sizing: border-box;
@@ -102,6 +103,9 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
+  #container .user {
+    z-index: 20;
+  }
   #footer .btnPages {
     width: 5vw;
     height: 4vh;
@@ -137,10 +141,10 @@ nav {
   .mainPopular .card {
     width: 30vw;
   }
-  .imgAlic .cardOnDisplay img {
+  #movieClickDisplay .cardOnDisplay img {
     width: 18vw;
     height: 23vh;
-    margin-top: 2vh;
+    margin-top: 6vh;
   }
   .sliderAll #leftArrow {
     width: 10vw;
@@ -176,26 +180,38 @@ nav {
 .imgAlic {
   display: flex;
   position: absolute;
-  justify-content: center;
-  gap: 2%;
-  align-items: center;
-  z-index: -5;
+  /* justify-content: center; */
+  /* gap: 2%; */
+  /* align-items: center; */
+
   width: 100%;
   height: 65vh;
   /* background-image: url(/assets/images/copyAlice.png); */
   /* background-size: 100% 100%; */
   color: white;
 }
-.imgAlic img {
-  width: 100vw;
-  height: 100%;
+#movieClickDisplay {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  gap: 2%;
+  z-index: 6;
+  align-items: center;
+  width: 100%;
+  height: 65vh;
+  color: white;
 }
-.imgAlic p {
+#movieClickDisplay p {
   text-align: justify;
 
   font-weight: bold;
   margin-right: 3vw;
 }
+.imgAlic img {
+  width: 100vw;
+  height: 100%;
+}
+
 .cardOnDisplay {
   display: flex;
   flex-direction: column;
@@ -213,6 +229,7 @@ nav {
   display: flex;
   width: 100%;
   height: 58vh;
+  background-color: #00000000;
 }
 #searchPopular {
   width: 100%;
