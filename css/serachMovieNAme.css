@@ -149,17 +149,47 @@ nav {
   font-family: "Cinzel", serif;
 }
 .login {
-  text-decoration: none;
+  padding: 0.5em 0.8em;
   color: white;
-  font-size: large;
+  position: relative;
+  text-decoration: none;
   font-family: "Cinzel", serif;
-  transition: 2s ease-in-out;
-  font-size: 17px;
-  font-weight: bold;
+  font-size: 20px;
 }
+.login::before,
+.login::after {
+  content: "";
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+.login::before {
+  content: "";
+  right: 0;
+  top: 0;
+  border-top: 3px solid rgb(158, 11, 11);
+  border-right: 3px solid rgb(158, 11, 11);
+  transform: translate(-100%, 50%);
+}
+.login:after {
+  content: "";
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid rgb(158, 11, 11);
+  border-left: 3px solid rgb(158, 11, 11);
+  transform: translate(100%, -50%);
+}
+
+.login:hover:before,
+.login:hover:after {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
 .login:hover {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.481);
+  color: rgb(222, 9, 54);
 }
 
 .box {
