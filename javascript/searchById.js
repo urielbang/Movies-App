@@ -9,7 +9,7 @@ hamburger.addEventListener("click", (e) => {
   e.currentTarget.classList.toggle("is-active");
 });
 
-let getMovie = () => {
+const getMovie = () => {
   let movieName = Number(movieNameRef.value);
 
   if (movieName.length <= 0) {
@@ -66,6 +66,7 @@ let getMovie = () => {
         
       
         `;
+        document.querySelector(".containSearch").style = "margin-top:18vh;";
       })
       .catch((error) => {
         result.innerHTML = `<h3 class="msg">Error Occured</h3>`;

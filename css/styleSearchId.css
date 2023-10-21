@@ -132,9 +132,20 @@ nav {
     display: flex;
   }
   #container .containSearch {
-    margin-top: 18vh;
+    /* margin-top: 18vh; */
     max-width: 100%;
     max-height: 120vh;
+  }
+  .search-container {
+    font-size: 14px;
+  }
+  .poster {
+    margin: auto;
+    width: auto;
+    max-height: 10.8em;
+  }
+  .info {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -277,19 +288,6 @@ p {
 }
 .msg {
   text-align: center;
-}
-@media screen and (max-width: 600px) {
-  .search-container {
-    font-size: 14px;
-  }
-  .poster {
-    margin: auto;
-    width: auto;
-    max-height: 10.8em;
-  }
-  .info {
-    grid-template-columns: 1fr;
-  }
 }
 
 #actorsDiv {
