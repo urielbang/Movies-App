@@ -114,7 +114,7 @@ input::placeholder {
 .user {
   position: absolute;
   display: flex;
-  z-index: 5;
+  z-index: 30;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -298,7 +298,6 @@ input::placeholder {
   -webkit-animation: bounceRight 1s forwards;
   animation: bounceRight 1s forwards;
 }
-
 
 @media screen and (max-width: 990px) {
   .user_options-forms {
