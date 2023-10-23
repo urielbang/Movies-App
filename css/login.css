@@ -318,7 +318,28 @@ input::placeholder {
   .user_options-unregistered {
     padding: 50px 45px;
   }
+  .user_options-text {
+    display: none;
+  }
+  .user_options-forms {
+    width: 50vw;
+    height: 30vh;
+
+    min-height: 45vh;
+
+    transform: translate3d(20%, -50%, 0);
+  }
+  .user_options-unregistered {
+    display: none;
+  }
+  .forms_buttons {
+    display: none;
+  }
+  .user_forms-signup {
+    display: none;
+  }
 }
+
 .exitBtn {
   position: absolute;
   top: 0rem;
