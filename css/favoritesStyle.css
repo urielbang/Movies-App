@@ -200,7 +200,13 @@ nav {
 .cardFavorites {
   display: flex;
   flex-direction: column;
-  width: 15vw;
+  max-width: 15vw;
+  height: 50vh;
   color: white;
   cursor: pointer;
+
+  z-index: 100;
+}
+.cardFavorites img {
+  height: 100%;
 }

@@ -1,11 +1,9 @@
 let hearts;
 let favorites = [];
 let cardClass;
-let storageValue = JSON.parse(localStorage.getItem("favorites"));
+let likesLocalStorage = JSON.parse(localStorage.getItem("favorites")) || [];
 
-if (storageValue !== null) {
-  favorites.push(storageValue);
-}
+// }
 const options = {
   method: "GET",
   headers: {
@@ -49,7 +47,7 @@ fetch(
       `;
     });
     //!hearts
-    hearts = document.getElementsByClassName("fa-heart");
+    hearts = document.querySelectorAll(".fa-heart");
 
     cardClass = document.getElementsByClassName("card");
     for (let i = 0; i < cardClass.length; i++) {
@@ -63,16 +61,50 @@ fetch(
         `;
       });
     }
-    for (let i = 0; i < hearts.length; i++) {
-      hearts[i].addEventListener("click", () => {
-        hearts[i].style.color = "red";
-        let strTmp = document.getElementById(`card${i}`).innerHTML;
 
-        favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+    const onClickHeart = (heart, index) => {
+      heart.style.color = "red";
+      const movieLiked = response.results[index];
+      localStorage.setItem(
+        "favorites",
+        JSON.stringify([movieLiked, ...likesLocalStorage])
+      );
+    };
 
-        localStorage.setItem("favorites", JSON.stringify(favorites));
+    hearts.forEach((heart, index) => {
+      heart.addEventListener("click", () => onClickHeart(heart, index));
+    });
+
+    if (likesLocalStorage.length > 0) {
+      let indicesLiked = likesLocalStorage.map((movieLiked) => {
+        return response.results.findIndex(
+          (movie) => movie.original_title === movieLiked.original_title
+        );
+      });
+
+      console.log(indicesLiked);
+
+      indicesLiked.forEach((heartLiked) => {
+        hearts.forEach((heart, index) => {
+          if (heartLiked === index) {
+            heart.style.color = "red";
+          }
+        });
       });
     }
+
+    // console.log(response.results);
+
+    // for (let i = 0; i < hearts.length; i++) {
+    //   hearts[i].addEventListener("click", () => {
+    //     hearts[i].style.color = "red";
+    //     let strTmp = document.getElementById(`card${i}`).innerHTML;
+
+    //     favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
+
+    //     localStorage.setItem("favorites", JSON.stringify(response.results.backdrop_path));
+    //   });
+    // }
   })
   .catch((err) => console.error(err));
 
