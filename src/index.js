@@ -8,8 +8,10 @@ let favorites = [];
 let cardClass;
 let likesLocalStorage = JSON.parse(localStorage.getItem("favorites")) || [];
 import img from "../src/assets/images/copyAlice.png";
+import icon from "../src/assets/images/icongUriel.png";
 
 document.getElementById("alicePic").src = img;
+document.getElementById("icon").href = icon;
 
 const options = {
   method: "GET",
@@ -99,19 +101,6 @@ fetch(
         });
       });
     }
-
-    // console.log(response.results);
-
-    // for (let i = 0; i < hearts.length; i++) {
-    //   hearts[i].addEventListener("click", () => {
-    //     hearts[i].style.color = "red";
-    //     let strTmp = document.getElementById(`card${i}`).innerHTML;
-
-    //     favorites.push(`<div class="cardFavorites">${strTmp}</div>`);
-
-    //     localStorage.setItem("favorites", JSON.stringify(response.results.backdrop_path));
-    //   });
-    // }
   })
   .catch((err) => console.error(err));
 
