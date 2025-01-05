@@ -3,7 +3,6 @@ let favorites = [];
 let cardClass;
 let likesLocalStorage = JSON.parse(localStorage.getItem("favorites")) || [];
 
-// }
 const options = {
   method: "GET",
   headers: {

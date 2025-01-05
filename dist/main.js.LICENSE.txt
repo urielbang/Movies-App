@@ -1,0 +1,17 @@
+//! change slider popular day
+
+//!change the alider to popular of week
+
+//!change the main popular day
+
+//!change the main popular of week
+
+//!default page
+
+//!hearts
+
+//!popular of week
+
+//!slider
+
+//!the all page!
