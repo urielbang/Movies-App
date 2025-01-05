@@ -20,7 +20,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|ico|webp)$/, // Match image files and other common assets
         type: "asset/resource", // Emit files as separate resources
         generator: {
-          filename: "assets/images/[name][ext]", // Save images in 'assets/images' folder
+          filename: "assets/images/alicePic.jpg", // Save images in 'assets/images' folder
         },
       },
       {
