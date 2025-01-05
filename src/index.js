@@ -1,4 +1,4 @@
-import "../src/css/style.css";
+import "./style.css";
 import "../src/css/favoritesStyle.css";
 import "../src/css/hamburger.css";
 import "../src/css/login.css";
