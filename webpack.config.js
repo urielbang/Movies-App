@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development", // Set to 'development' by default; switch to 'production' for production builds
+  mode: "development", // Default mode, switch to 'production' for production builds
   entry: "./src/index.js", // Main entry file for your application
   output: {
     filename: "main.js", // Output JavaScript file name
@@ -20,14 +20,14 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|ico|webp)$/, // Match image files and other common assets
         type: "asset/resource", // Emit files as separate resources
         generator: {
-          filename: "assets/images/alicePic.jpg", // Save images in 'assets/images' folder
+          filename: "assets/images/[name][ext]", // Save images in 'assets/images' folder
         },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/, // Match font files
         type: "asset/resource", // Emit font files as resources
         generator: {
-          filename: "assets/images", // Save fonts in 'assets/fonts' folder
+          filename: "assets/fonts/[name][ext]", // Save fonts in 'assets/fonts' folder
         },
       },
       {

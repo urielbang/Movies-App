@@ -7,6 +7,9 @@ let hearts;
 let favorites = [];
 let cardClass;
 let likesLocalStorage = JSON.parse(localStorage.getItem("favorites")) || [];
+import img from "../src/assets/images/copyAlice.png";
+
+document.getElementById("alicePic").src = img;
 
 const options = {
   method: "GET",
