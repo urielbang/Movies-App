@@ -1,3 +1,8 @@
+import "../src/css/style.css";
+import "../src/css/favoritesStyle.css";
+import "../src/css/hamburger.css";
+import "../src/css/login.css";
+
 let hearts;
 let favorites = [];
 let cardClass;

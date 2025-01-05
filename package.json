@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +14,12 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@babel/core": "^x.x.x",
+    "@babel/preset-env": "^x.x.x",
+    "babel-loader": "^x.x.x",
+    "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
