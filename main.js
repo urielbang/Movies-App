@@ -28,14 +28,6 @@ const fetchDefaultData = async () => {
   }
 };
 
-const getData = async () => {
-  const data = await fetchDefaultData();
-
-  console.log("====================================");
-  console.log(data.results);
-  console.log("====================================");
-};
-
 fetch(
   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
   options
@@ -69,54 +61,65 @@ fetch(
       </div>
       `;
     });
-    //!hearts
-    hearts = document.querySelectorAll(".fa-heart");
-
-    cardClass = document.getElementsByClassName("card");
-    for (let i = 0; i < cardClass.length; i++) {
-      cardClass[i].addEventListener("click", () => {
-        console.log("click");
-        document.querySelector(
-          "#movieClickDisplay"
-        ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
-        <p>${response.results[i].overview}</p>
-        
-        `;
-      });
-    }
-
-    const onClickHeart = (heart, index) => {
-      heart.style.color = "red";
-      const movieLiked = response.results[index];
-      localStorage.setItem(
-        "favorites",
-        JSON.stringify([movieLiked, ...likesLocalStorage])
-      );
-    };
-
-    hearts.forEach((heart, index) => {
-      heart.addEventListener("click", () => onClickHeart(heart, index));
-    });
-
-    if (likesLocalStorage.length > 0) {
-      let indicesLiked = likesLocalStorage.map((movieLiked) => {
-        return response.results.findIndex(
-          (movie) => movie.original_title === movieLiked.original_title
-        );
-      });
-
-      console.log(indicesLiked);
-
-      indicesLiked.forEach((heartLiked) => {
-        hearts.forEach((heart, index) => {
-          if (heartLiked === index) {
-            heart.style.color = "red";
-          }
-        });
-      });
-    }
   })
   .catch((err) => console.error(err));
+
+//!hearts
+
+const handleLikes = async () => {
+  const data = await fetchDefaultData();
+
+  hearts = document.querySelectorAll(".fa-heart");
+
+  cardClass = document.getElementsByClassName("card");
+  for (let i = 0; i < cardClass.length; i++) {
+    cardClass[i].addEventListener("click", () => {
+      console.log("click");
+      document.querySelector(
+        "#movieClickDisplay"
+      ).innerHTML = `<div class="cardOnDisplay">${cardClass[i].innerHTML}</div>
+       <p>${data.results[i].overview}</p>
+       
+       `;
+    });
+  }
+
+  const onClickHeart = (heart, index) => {
+    heart.style.color = "red";
+    const movieLiked = data.results[index];
+
+    if (
+      !likesLocalStorage.some(
+        (movie) => movie.original_title === movieLiked.original_title
+      )
+    ) {
+      likesLocalStorage = [movieLiked, ...likesLocalStorage];
+      localStorage.setItem("favorites", JSON.stringify(likesLocalStorage));
+    }
+  };
+
+  hearts.forEach((heart, index) => {
+    heart.addEventListener("click", () => onClickHeart(heart, index));
+  });
+
+  if (likesLocalStorage.length > 0) {
+    let indicesLiked = likesLocalStorage.map((movieLiked) => {
+      return data.results.findIndex(
+        (movie) => movie.original_title === movieLiked.original_title
+      );
+    });
+
+    indicesLiked.forEach((heartLiked) => {
+      hearts.forEach((heart, index) => {
+        if (heartLiked === index) {
+          heart.style.color = "red";
+        }
+      });
+    });
+  }
+};
+
+handleLikes();
 
 document.querySelector("#format").addEventListener("change", () => {
   document.querySelector("#slider").innerHTML = "";
