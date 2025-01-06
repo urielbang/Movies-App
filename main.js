@@ -95,6 +95,14 @@ const handleLikes = async () => {
     ) {
       likesLocalStorage = [movieLiked, ...likesLocalStorage];
       localStorage.setItem("favorites", JSON.stringify(likesLocalStorage));
+    } else {
+      heart.style.color = "white";
+
+      let updatedLocalStorage = likesLocalStorage.filter(
+        (movie) => movie.original_title !== movieLiked.original_title
+      );
+
+      localStorage.setItem("favorites", JSON.stringify(updatedLocalStorage));
     }
   };
 

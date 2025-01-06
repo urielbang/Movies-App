@@ -21,12 +21,14 @@ favoritesLS.forEach((elemet, index) => {
 hearts = document.querySelectorAll(".fa-heart");
 
 const onClickHeart = (heart, index) => {
+  let movieLiked = favoritesLS[index];
   heart.style.color = "white";
-  // const movieLiked = response.results[index];
-  // localStorage.setItem(
-  //   "favorites",
-  //   JSON.stringify([movieLiked, ...likesLocalStorage])
-  // );
+
+  let updatedLocalStorage = favoritesLS.filter(
+    (movie) => movie.original_title !== movieLiked.original_title
+  );
+
+  localStorage.setItem("favorites", JSON.stringify(updatedLocalStorage));
 };
 hearts.forEach((heart, index) =>
   heart.addEventListener("click", () => onClickHeart(heart, index))
