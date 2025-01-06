@@ -1,17 +1,7 @@
-import "./style.css";
-import "../src/css/favoritesStyle.css";
-import "../src/css/hamburger.css";
-import "../src/css/login.css";
-
 let hearts;
 let favorites = [];
 let cardClass;
 let likesLocalStorage = JSON.parse(localStorage.getItem("favorites")) || [];
-import img from "../src/assets/images/copyAlice.png";
-import icon from "../src/assets/images/icongUriel.png";
-
-document.getElementById("alicePic").src = img;
-document.getElementById("icon").href = icon;
 
 const options = {
   method: "GET",
