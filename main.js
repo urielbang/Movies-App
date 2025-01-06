@@ -12,6 +12,30 @@ const options = {
   },
 };
 //!default page
+
+const fetchDefaultData = async () => {
+  try {
+    const res = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
+    );
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return await res.json();
+  } catch (error) {
+    console.error("Fetch error:", error);
+    return { error: "Something went wrong" };
+  }
+};
+
+const getData = async () => {
+  const data = await fetchDefaultData();
+
+  console.log("====================================");
+  console.log(data.results);
+  console.log("====================================");
+};
+
 fetch(
   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
   options
