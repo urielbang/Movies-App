@@ -13,56 +13,60 @@ const options = {
 };
 //!default page
 
-const fetchDefaultData = async () => {
+const fetchDefaultData = async (pageNumber) => {
   try {
-    const res = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
-    );
-    if (!res.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return await res.json();
+    const data = fetch(
+      `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${pageNumber}`,
+      options
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        return res.results;
+      });
+
+    return data;
   } catch (error) {
     console.error("Fetch error:", error);
     return { error: "Something went wrong" };
   }
 };
 
-fetch(
-  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-  options
-)
-  .then((response) => response.json())
-  .then((response) => {
-    response.results.forEach((element, index) => {
-      let date = new Date(element.release_date).getFullYear();
+// fetch(
+//   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+//   options
+// )
+//   .then((response) => response.json())
+//   .then((response) => {
+//     response.results.forEach((element, index) => {
+//       let date = new Date(element.release_date).getFullYear();
 
-      //!slider
-      document.querySelector("#slider").innerHTML += `
-      
-      <div style="display: flex;flex-direction: column;" class="cardSlider">
-      <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
-      <p> ${element.original_title}</p>
-      <span>${date}</span>
-      <div>
-    
-      
-      
-      `;
-      //!the all page!
-      document.querySelector("#mainPopular").innerHTML += `
-      <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
-      <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
-      <div style="display: flex;flex-direction: row;" class="divHeart"> 
-      <p> ${element.original_title}</p>
-      <i class="fa fa-heart" style="font-size: 20px"></i>
-       </div>
-      <span>${date}</span>
-      </div>
-      `;
-    });
-  })
-  .catch((err) => console.error(err));
+const data = fetchDefaultData(1);
+console.log(data);
+
+//       //!slider
+//       document.querySelector("#slider").innerHTML += `
+
+//       <div style="display: flex;flex-direction: column;" class="cardSlider">
+//       <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
+//       <p> ${element.original_title}</p>
+//       <span>${date}</span>
+//       <div>
+
+//       `;
+//       //!the all page!
+//       document.querySelector("#mainPopular").innerHTML += `
+//       <div style="display: flex;flex-direction: column;" class="card" id="card${index}">
+//       <img  src="https://image.tmdb.org/t/p/w500/${element.poster_path}">
+//       <div style="display: flex;flex-direction: row;" class="divHeart">
+//       <p> ${element.original_title}</p>
+//       <i class="fa fa-heart" style="font-size: 20px"></i>
+//        </div>
+//       <span>${date}</span>
+//       </div>
+//       `;
+//     });
+//   })
+//   .catch((err) => console.error(err));
 
 //!hearts
 
