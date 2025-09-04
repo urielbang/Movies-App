@@ -12,19 +12,19 @@ const options = {
   },
 };
 //!default page
-
 const fetchDefaultData = async (pageNumber) => {
   try {
-    const data = fetch(
+    const response = await fetch(
       `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${pageNumber}`,
       options
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        return res.results;
-      });
+    );
 
-    return data;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.results;
   } catch (error) {
     console.error("Fetch error:", error);
     return { error: "Something went wrong" };
@@ -40,8 +40,12 @@ const fetchDefaultData = async (pageNumber) => {
 //     response.results.forEach((element, index) => {
 //       let date = new Date(element.release_date).getFullYear();
 
-const data = fetchDefaultData(1);
-console.log(data);
+const getMovies = async () => {
+  const movies = await fetchDefaultData(1);
+  console.log(movies);
+};
+
+getMovies();
 
 //       //!slider
 //       document.querySelector("#slider").innerHTML += `
